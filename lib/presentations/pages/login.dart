@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -44,7 +45,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 15),
+              padding: const EdgeInsets.symmetric(vertical: 20),
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.9,
                 padding: const EdgeInsets.only(left: 10, top: 5),
@@ -80,15 +81,34 @@ class _LoginPageState extends State<LoginPage> {
               width: MediaQuery.of(context).size.width * 0.9,
               padding: const EdgeInsets.only(left: 10),
               height: 60,
-              decoration: BoxDecoration(
-                color: Colors.grey[300],
+              decoration: const BoxDecoration(
+                color: Color.fromARGB(255, 29, 71, 122),
               ),
               child: const Center(
-                  child: Text('Log In',
+                  child: Text('Sign in',
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black))),
+                          color: Colors.white))),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 20),
+              child: RichText(
+                text: TextSpan(
+                  text: 'Don\'t have an account? ',
+                  style: const TextStyle(color: Colors.black, fontSize: 20),
+                  children: [
+                    TextSpan(
+                        text: 'Sign up',
+                        style: const TextStyle(
+                            color: Color.fromARGB(255, 29, 71, 122),
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () => {print('Sign up')}),
+                  ],
+                ),
+              ),
             ),
           ],
         ),
