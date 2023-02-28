@@ -11,8 +11,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final user = FirebaseAuth.instance.currentUser!;
 
-  Future logout() async {}
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +27,7 @@ class _HomePageState extends State<HomePage> {
               height: 30,
             ),
             GestureDetector(
-              onTap: logout,
+              onTap: () => FirebaseAuth.instance.signOut(),
               child: const Center(
                   child: Text('Logout',
                       style: TextStyle(
