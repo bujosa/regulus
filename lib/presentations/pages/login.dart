@@ -10,17 +10,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  bool _passwordVisible = false;
-
-  @override
-  void initState() {
-    super.initState();
-    _passwordVisible = false;
-  }
-
   @override
   Widget build(BuildContext context) {
-    // Text Field controllers
     final emailController = TextEditingController();
     final passwordController = TextEditingController();
 
@@ -72,25 +63,12 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   child: TextField(
                     controller: passwordController,
-                    obscureText: !_passwordVisible,
+                    obscureText: true,
                     style: const TextStyle(color: Colors.black, fontSize: 20),
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       hintText: 'Password',
                       border: InputBorder.none,
-                      hintStyle: const TextStyle(color: Colors.black),
-                      suffixIcon: IconButton(
-                        icon: Icon(
-                          _passwordVisible
-                              ? Icons.visibility
-                              : Icons.visibility_off,
-                          color: Colors.black,
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            _passwordVisible = !_passwordVisible;
-                          });
-                        },
-                      ),
+                      hintStyle: TextStyle(color: Colors.black),
                     ),
                   ),
                 ),
