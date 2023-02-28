@@ -16,12 +16,20 @@ class _LoginPageState extends State<LoginPage> {
     final passwordController = TextEditingController();
 
     Future signIn() async {
-      print(
-          'email: ${emailController.text} and password: ${passwordController.text}');
+      showDialog(
+          context: context,
+          builder: (context) {
+            return const Center(child: CircularProgressIndicator());
+          });
 
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: emailController.text.trim(),
-          password: passwordController.text.trim());
+      await FirebaseAuth.instance
+          .signInWithEmailAndPassword(
+              email: emailController.text.trim(),
+              password: passwordController.text.trim())
+          .whenComplete(() => print('hola'));
+
+      // ignore: use_build_context_synchronously
+      Navigator.of(context).pop();
     }
 
     return Scaffold(
