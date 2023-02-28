@@ -5,16 +5,9 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       resizeToAvoidBottomInset: false,
-      body: Center(
-        child: Column(
-          children: const <Widget>[
-            Text('You are login',
-                style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold)),
-          ],
-        ),
-      ),
+      body: Center(child: Text('You are signed')),
     );
   }
 }
