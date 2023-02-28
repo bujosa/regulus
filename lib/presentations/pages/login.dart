@@ -26,10 +26,7 @@ class _LoginPageState extends State<LoginPage> {
           .signInWithEmailAndPassword(
               email: emailController.text.trim(),
               password: passwordController.text.trim())
-          .whenComplete(() => print('hola'));
-
-      // ignore: use_build_context_synchronously
-      Navigator.of(context).pop();
+          .whenComplete(() => Navigator.of(context).pop());
     }
 
     return Scaffold(
